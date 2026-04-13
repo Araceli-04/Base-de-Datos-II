@@ -3,45 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base de Datos II | Aesthetic</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Portafolio | Jihomara Medrano</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pink-accent: #f06292;
+            --purple-accent: #b392f0;
+            --bg-gradient: linear-gradient(135deg, #fff5f7 0%, #f3e5f5 100%);
+            --glass: rgba(255, 255, 255, 0.85);
+            --text-dark: #4a4e69;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg-gradient);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Contenedores para mantener el equilibrio del flexbox */
+        .nav-left, .nav-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-right { justify-content: flex-end; }
+
+        .nav-left .logo { height: 45px; }
+
+        .course-name-center {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            letter-spacing: 4px;
+            background: linear-gradient(90deg, var(--pink-accent), var(--purple-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-left: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--pink-accent); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+
+        .welcome-text {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--purple-accent);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .student-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .subtitle-line {
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            opacity: 0.6;
+        }
+
+        /* --- GRID 4x4 --- */
+        .container { 
+            max-width: 1300px; 
+            margin: 40px auto; 
+            padding: 0 40px; 
+        }
+
+        .weeks-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 25px;
+        }
+
+        /* --- CARDS --- */
+        .card {
+            background: var(--glass);
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--pink-accent);
+            box-shadow: 0 20px 40px rgba(240, 98, 146, 0.12);
+        }
+
+        .card-header {
+            padding: 20px 25px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            color: var(--pink-accent);
+            background: linear-gradient(90deg, #fff0f3, #f3e5f5);
+        }
+
+        .card-body { 
+            padding: 25px; 
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-body p { font-size: 0.85rem; color: #6b705c; margin-bottom: 8px; line-height: 1.4; }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 100px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .complete { background: var(--pink-accent); color: white; transition: 0.3s; }
+        .pending { background: #eee; color: #aaa; }
+
+        footer {
+            text-align: center;
+            padding: 80px 20px;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            color: #b2bec3;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 1100px) { .weeks-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { 
+            .navbar { padding: 15px 20px; }
+            .nav-links a { margin-left: 10px; font-size: 0.7rem; }
+            .course-name-center { font-size: 1.2rem; }
+        }
+    </style>
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo-container">
-            <img src="logo-u.png" alt="Logo" class="u-logo">
-            <span class="course-title">Base de Datos II</span>
-        </div>
+<header class="navbar">
+    <div class="nav-left">
+        <img src="img/LogoUpla.png" alt="Logo" class="logo">
+    </div>
+
+    <h1 class="course-name-center">BASE DE DATOS II</h1>
+
+    <div class="nav-right">
         <nav class="nav-links">
             <a href="#">Inicio</a>
-            <a href="#" class="active">Proyectos</a>
+            <a href="#">Proyectos</a>
             <a href="#">Iniciar Sesión</a>
         </nav>
-    </header>
+    </div>
+</header>
 
-    <main class="container">
-        <h2 class="section-title">16 Semanas de Curso</h2>
-        
-        <div class="weeks-grid">
+<main>
+    <section class="hero">
+        <p class="welcome-text">Ingeniería de Sistemas</p>
+        <h2 class="student-name">Jihomara Araceli <br> Medrano Huertas</h2>
+        <p class="subtitle-line">— Bitácora de 16 Semanas —</p>
+    </section>
+
+    <div class="container">
+        <div class="weeks-grid" id="grid">
             <div class="card">
                 <div class="card-header">Semana 1</div>
                 <div class="card-body">
-                    <p>Definición de SGBD y Modelos de Datos</p>
-                    <span class="badge complete">Completo</span>
+                    <div>
+                        <p>• Arquitectura de base de datos.</p>
+                        <p>• Investigación de repositorios.</p>
+                    </div>
+                    <a href="semanas/semana1.html" class="badge complete">Ver Semana</a>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card-header">Semana 2</div>
-                <div class="card-body">
-                    <p>Modelado Entidad-Relación y Normalización</p>
-                    <span class="badge process">En Proceso</span>
-                </div>
-            </div>
-            </div>
-    </main>
+            <script>
+                const grid = document.getElementById('grid');
+                for (let i = 2; i <= 16; i++) {
+                    grid.innerHTML += `
+                    <div class="card">
+                        <div class="card-header">Semana ${i}</div>
+                        <div class="card-body">
+                            <p>Contenido pendiente de asignar según avance del curso.</p>
+                            <span class="badge pending">Pendiente</span>
+                        </div>
+                    </div>`;
+                }
+            </script>
+        </div>
+    </div>
+</main>
+
+<footer>
+    © 2026 Jihomara Araceli Medrano Huertas • UPLA
+</footer>
 
 </body>
 </html>
