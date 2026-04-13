@@ -1,0 +1,104 @@
+:root {
+    --rosa-pastel: #fce4ec;
+    --lila-suave: #f3e5f5;
+    --crema: #fffdf9;
+    --texto-cafe: #5d4037;
+    --acento-oro: #d4af37;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--crema);
+    font-family: 'Poppins', sans-serif;
+    color: var(--texto-cafe);
+}
+
+/* MENÚ SUPERIOR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.course-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--texto-cafe);
+    margin-left: 25px;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.nav-links a.active {
+    background-color: var(--rosa-pastel);
+    font-weight: bold;
+}
+
+/* CONTENEDOR DE TARJETAS */
+.container {
+    max-width: 1100px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.weeks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+/* TARJETAS ESTILO ARCH (ARCO) */
+.card {
+    background: white;
+    border-radius: 50px 50px 20px 20px; /* Bordes superiores tipo arco */
+    overflow: hidden;
+    border: 1px solid var(--rosa-pastel);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-header {
+    background-color: var(--lila-suave);
+    padding: 20px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.complete { background-color: #dcedc8; color: #33691e; }
+.process { background-color: #fff9c4; color: #f57f17; }
