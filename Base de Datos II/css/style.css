@@ -1,0 +1,146 @@
+:root {
+    --rosa-pastel: #fce4ec;
+    --lila-suave: #f3e5f5;
+    --crema: #fffdf9;
+    --texto-cafe: #5d4037;
+    --morado-oscuro: #4a148c; 
+    --lila-vibrante: #9c27b0; 
+    --verde-ok: #2e7d32;
+    --gris-texto: #9e9e9e;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--crema);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* NAVBAR AJUSTADA */
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    padding: 10px 5%;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.nav-left { display: flex; justify-content: flex-start; }
+.nav-center { display: flex; justify-content: center; }
+.nav-right { display: flex; justify-content: flex-end; }
+
+.logo { height: 45px; width: auto; }
+
+/* TÍTULO BASE DE DATOS II (ACHICADO A MEDIANO) */
+.course-name-center {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; /* Antes era mucho más grande */
+    font-weight: 700;
+    color: var(--texto-cafe);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+/* TÍTULO 16 SEMANAS (ACHICADO A MEDIANO) */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; /* Tamaño mediano equilibrado */
+    color: var(--morado-oscuro);
+    text-align: center;
+    margin: 25px 0;
+}
+
+/* CUADRÍCULA 4x4 */
+.weeks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    padding: 0 5% 40px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* TARJETAS */
+.card {
+    background: white;
+    border-radius: 80px 80px 20px 20px; /* Arcos un poco más sutiles */
+    border: 1px solid var(--rosa-pastel);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    transition: 0.3s;
+}
+
+.card:hover { transform: translateY(-5px); }
+
+.card-header {
+    background-color: var(--lila-suave);
+    padding: 25px 10px 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--morado-oscuro);
+    text-align: center;
+}
+
+.card-body {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* BOTONES (ACHICADOS Y MÁS ESTILIZADOS) */
+.badge {
+    padding: 4px 12px; /* Reducción de tamaño */
+    border-radius: 20px;
+    font-size: 0.65rem; /* Fuente más pequeña para que se vea fino */
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    align-self: center; /* No ocupan todo el ancho */
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+.complete { 
+    background-color: #e8f5e9; 
+    color: var(--verde-ok);
+    border: 1px solid #c8e6c9;
+}
+
+.pending { 
+    background-color: #f5f5f5; 
+    color: var(--gris-texto);
+    border: 1px solid #e0e0e0;
+}
+
+/* MENÚ */
+.nav-links a {
+    text-decoration: none;
+    color: var(--texto-cafe);
+    margin-left: 15px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.nav-links a.active { background-color: var(--rosa-pastel); font-weight: 600; }
+
+/* Ajuste para que los botones-enlace se vean igual que los badges */
+a.badge {
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+a.badge:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
