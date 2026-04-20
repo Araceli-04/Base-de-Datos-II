@@ -144,3 +144,153 @@ a.badge:hover {
     opacity: 0.8;
     transform: scale(1.05);
 }
+/* Contenedor de cada Unidad */
+.unidad-wrapper {
+    margin-bottom: 70px;
+}
+
+/* Encabezado de Unidad */
+.unidad-header {
+    margin-bottom: 30px;
+    padding-left: 10px;
+}
+
+.unidad-tag {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--pink-accent);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.unidad-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.unidad-line {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--pink-accent), var(--purple-accent));
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+/* Ajuste de la Grid para que siempre sea 4x4 */
+.weeks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+/* Animación de entrada para que se vea interactivo */
+.unidad-wrapper {
+    animation: fadeInSlide 0.8s ease forwards;
+}
+
+@keyframes fadeInSlide {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Espaciado entre bloques de unidades */
+.unidad-container {
+    margin-bottom: 60px;
+    animation: fadeIn 1s ease;
+}
+
+/* Títulos de las Unidades */
+.unidad-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+
+.unidad-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-right: 20px;
+    white-space: nowrap;
+}
+
+.unidad-divider {
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--pink-accent), transparent);
+    opacity: 0.3;
+}
+
+/* Asegurar que la cuadrícula siempre sea 4 por fila */
+.weeks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Animación suave */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive: 2 columnas en tablets, 1 en móvil */
+@media (max-width: 1024px) {
+    .weeks-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .weeks-grid { grid-template-columns: 1fr; }
+}
+<style>
+    :root {
+        --t1-pink-gradient: linear-gradient(90deg, #ff85a1, #ffc3a0);
+        --t2-purple-gradient: linear-gradient(90deg, #b392f0, #d4fc79);
+        --pink-dark: #f06292;
+        --purple-dark: #7e57c2;
+        --bg-gradient: linear-gradient(135deg, #fff5f7 0%, #f3e5f5 100%);
+        --glass: rgba(255, 255, 255, 0.92);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg-gradient); font-family: 'Plus Jakarta Sans', sans-serif; color: #4a4e69; padding: 60px 20px; }
+    
+    .aesthetic-card { max-width: 1000px; margin: 0 auto; background: var(--glass); backdrop-filter: blur(25px); padding: 40px; border-radius: 60px; border: 1px solid white; box-shadow: 0 40px 100px rgba(240, 98, 146, 0.12); }
+    
+    header { text-align: center; margin-bottom: 60px; }
+    .main-title { font-family: 'Playfair Display', serif; font-size: 3.5rem; background: linear-gradient(45deg, var(--pink-dark), var(--purple-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    
+    .task-banner { display: flex; align-items: center; padding: 15px 40px; border-radius: 100px; margin: 40px 0 25px; color: white; background: var(--t1-pink-gradient); }
+    .task-txt { font-size: 1.5rem; font-weight: 700; }
+    
+    /* --- SECCIÓN INSTALACIÓN (Imágenes chiquitas) --- */
+    .step-box { background: white; padding: 25px; border-radius: 30px; margin-bottom: 20px; border-left: 8px solid var(--pink-dark); overflow: hidden; }
+    
+    .sql-mini-img { 
+        width: 100%; 
+        max-width: 300px !important; /* Aquí controlas que no crezcan */
+        margin: 15px auto 0; 
+        display: block;
+        border-radius: 15px;
+        border: 1px solid #eee;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    /* --- SECCIÓN EJERCICIOS (Imágenes grandes) --- */
+    .exercise-box { background: #fbf8ff; padding: 35px; border-radius: 40px; border: 2px dashed var(--purple-dark); margin-top: 20px; }
+    
+    .diagram-full-img { 
+        width: 100% !important; 
+        max-width: 800px !important; /* Estas sí se verán grandes */
+        height: auto;
+        margin: 20px auto;
+        display: block;
+        border-radius: 20px;
+    }
+
+    mark { background: #fff0f3; color: var(--pink-dark); padding: 2px 8px; border-radius: 8px; font-weight: 700; }
+    footer { text-align: center; margin-top: 60px; font-size: 0.7rem; opacity: 0.5; }
+    .back-btn { text-decoration: none; color: var(--pink-dark); font-weight: 700; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px; display: inline-block; }
+</style>

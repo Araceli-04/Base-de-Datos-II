@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 2 | SQL Server & ER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --t1-pink-gradient: linear-gradient(90deg, #ff85a1, #ffc3a0);
+            --t2-purple-gradient: linear-gradient(90deg, #b392f0, #d4fc79);
+            --pink-dark: #f06292;
+            --purple-dark: #7e57c2;
+            --bg-gradient: linear-gradient(135deg, #fff5f7 0%, #f3e5f5 100%);
+            --glass: rgba(255, 255, 255, 0.92);
+            --shadow-soft: 0 20px 40px rgba(240, 98, 146, 0.08);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg-gradient); font-family: 'Plus Jakarta Sans', sans-serif; color: #4a4e69; padding: 60px 20px; line-height: 1.6; }
+        
+        .aesthetic-card { max-width: 1000px; margin: 0 auto; background: var(--glass); backdrop-filter: blur(25px); padding: 60px; border-radius: 60px; border: 1px solid white; box-shadow: 0 40px 100px rgba(240, 98, 146, 0.12); position: relative; }
+        
+        .back-btn { text-decoration: none; color: var(--pink-dark); font-weight: 700; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px; display: inline-block; transition: 0.3s; }
+        .back-btn:hover { transform: translateX(-5px); opacity: 0.7; }
+        
+        header { text-align: center; margin-bottom: 60px; }
+        .main-title { font-family: 'Playfair Display', serif; font-size: 4rem; background: linear-gradient(45deg, var(--pink-dark), var(--purple-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
+        
+        .task-banner { display: flex; align-items: center; padding: 15px 40px; border-radius: 100px; margin: 40px 0 25px; color: white; background: var(--t1-pink-gradient); box-shadow: 0 10px 20px rgba(255, 133, 161, 0.2); }
+        .task-txt { font-size: 1.6rem; font-weight: 700; }
+        
+        /* AJUSTE DE CAJONES DE PASOS A TAMAÑO MEDIANO */
+        .steps-container { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); /* Tres columnas para hacerlos más compactos */
+            gap: 15px; 
+            margin-bottom: 40px; 
+        }
+        .step-box { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 25px; 
+            border-top: 6px solid var(--pink-dark); /* Borde superior para un look más moderno */
+            transition: all 0.4s ease;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+        .step-box:hover { transform: translateY(-5px); box-shadow: var(--shadow-soft); }
+        .step-box h4 { color: var(--pink-dark); margin-bottom: 8px; font-size: 1rem; text-transform: uppercase; }
+        .step-box p { font-size: 0.9rem; line-height: 1.4; }
+        
+        .interactive-guide {
+            background: #ffffff;
+            border-radius: 40px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 600px;
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+        }
+        .interactive-guide img { width: 100%; border-radius: 25px; display: block; }
+
+        mark { background: #fff0f3; color: var(--pink-dark); padding: 2px 6px; border-radius: 6px; font-weight: 700; }
+        
+        .exercise-box { background: #fbf8ff; padding: 35px; border-radius: 40px; border: 2px dashed var(--purple-dark); margin-top: 20px; margin-bottom: 30px; }
+        
+        .diagram-container { 
+            background: white; 
+            border-radius: 30px; 
+            padding: 20px; 
+            margin: 20px auto 0;
+            max-width: 550px; 
+            text-align: center; 
+            border: 1px solid #eee; 
+        }
+        .diagram-container img { max-width: 100%; height: auto; border-radius: 20px; }
+        
+        .logic-pill { display: inline-block; background: var(--purple-dark); color: white; padding: 4px 15px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-bottom: 15px; text-transform: uppercase; }
+
+        footer { text-align: center; margin-top: 80px; font-size: 0.7rem; letter-spacing: 4px; opacity: 0.5; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 20px; }
+        
+        /* Responsive para móviles */
+        @media (max-width: 768px) {
+            .steps-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="aesthetic-card">
+        <a href="../index.html" class="back-btn">← Volver al Portafolio</a>
+        
+        <header>
+            <h1 class="main-title">Semana 02</h1>
+            <p style="letter-spacing: 5px; color: var(--pink-dark); font-weight: 700;">INSTALACIÓN & MODELADO ER</p>
+        </header>
+
+        <div class="task-banner">
+            <h2 class="task-txt">Guía de Instalación: SQL Server</h2>
+        </div>
+
+        <div class="steps-container">
+            <div class="step-box">
+                <h4>Paso 1</h4>
+                <p>Descarga la versión <mark>Developer</mark> desde el portal oficial.</p>
+            </div>
+            <div class="step-box">
+                <h4>Paso 2</h4>
+                <p>Elige instalación <mark>Básica</mark> y configura el idioma.</p>
+            </div>
+            <div class="step-box">
+                <h4>Paso 3</h4>
+                <p>Instala <mark>SSMS</mark> para la interfaz gráfica.</p>
+            </div>
+        </div>
+
+        <div class="interactive-guide">
+            <img src="Sqlserve.png" alt="Guía visual de instalación SQL Server">
+            <p class="guide-caption" style="font-size: 0.8rem; margin-top: 10px;">Visualización rápida de los pasos clave.</p>
+        </div>
+
+        <div class="task-banner" style="background: var(--t2-purple-gradient);">
+            <h2 class="task-txt">Ejercicios: Modelo Entidad Relación</h2>
+        </div>
+
+        <div class="exercise-box">
+            <span class="logic-pill">RELACIÓN N:M (CLIENTE - PRODUCTO)</span>
+            <h4 style="color: var(--purple-dark); margin-bottom: 15px;">Pregunta 01: Sistema de Ventas</h4>
+            <p>Modelado de transacciones entre clientes y stock disponible.</p>
+            <div class="diagram-container">
+                <img src="Venta_produc.png" alt="Diagrama de Productos">
+            </div>
+        </div>
+
+        <div class="exercise-box">
+            <span class="logic-pill">RELACIÓN COMPLEJA (TRANS-ESPAÑA)</span>
+            <h4 style="color: var(--purple-dark); margin-bottom: 15px;">Pregunta 02: Gestión de Transportes</h4>
+            <p>Control logístico de paquetes, camioneros y provincias.</p>
+            <div class="diagram-container">
+                <img src="Transportes.png" alt="Diagrama Empresa de Transportes">
+            </div>
+        </div>
+
+        <footer>JIHOMARA MEDRANO HUERTAS • BASE DE DATOS II • 2026</footer>
+    </div>
+</body>
+</html>
